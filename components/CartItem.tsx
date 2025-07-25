@@ -11,7 +11,7 @@ export default function CartItem({ item }: any) {
   useEffect(() => {
     const updateItemQuantity = () => {
       const updatedItems = selectedItems.map((cartItem) =>
-        cartItem.id === item.id ? { ...cartItem, quantity } : cartItem
+        cartItem.name === item.name ? { ...cartItem, quantity } : cartItem,
       );
       setSelectedItems(updatedItems);
     };
@@ -21,7 +21,7 @@ export default function CartItem({ item }: any) {
   //to remove the item from selectedItem
   const removeSelected = (item: any) => {
     const updatedItems = selectedItems.filter(
-      (cartItem) => cartItem.name !== item.name
+      (cartItem) => cartItem.name !== item.name,
     );
     setSelectedItems(updatedItems);
   };
@@ -52,11 +52,7 @@ export default function CartItem({ item }: any) {
               removeSelected(item);
             }}
           >
-            <Text
-              className="text-[#F4BA45] pt-4 "
-            >
-              Remove Item
-            </Text>
+            <Text className="text-[#F4BA45] pt-4 ">Remove Item</Text>
           </TouchableOpacity>
         </View>
 
